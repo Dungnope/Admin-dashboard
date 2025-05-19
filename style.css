@@ -49,11 +49,12 @@ header .upper {
 .upper .search{
     width: 100%;
     li input {
+        margin-right: 20px;
         border: none;
         border-radius: 100px;
         background-color: rgba(199, 194, 194, 0.313);
         height: 40px;
-        width: 400%;
+        width: 50em;
         padding-left: 20px;
         color: black;
         font-size: 1.4rem;
@@ -122,14 +123,13 @@ header .lower{
 aside{
     background-color: rgb(25 146 212);
     grid-row: 1 / 4;
-    min-width: 200px;
     padding: 40px;
     .logo{
         display: flex;
         align-items: center;
         column-gap: 20px;
         li{
-            font-size: 4.4rem;
+            font-size: 414%;
             font-weight: 800;
             color: white;
         }
