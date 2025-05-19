@@ -15,10 +15,11 @@ html{
 .container{
     min-height: 100vh;
     display: grid;
-    grid-template: 200px 1.5fr / 1fr 4fr;
+    grid-template: 220px 1.5fr / 1fr 4fr;
 }
 
 header{
+    padding: 15px 100px;
     position:relative;
     background-color: #ffffff;
     display: grid;
@@ -27,11 +28,146 @@ header{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+header .upper {
+    padding-right: 20px;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.upper .search, .upper .infor {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.upper .search{
+    width: 100%;
+    li input {
+        border: none;
+        border-radius: 100px;
+        background-color: rgba(199, 194, 194, 0.313);
+        height: 40px;
+        width: 400%;
+        padding-left: 20px;
+        color: black;
+        font-size: 1.4rem;
+    }
+}
+
+.upper .infor{
+    column-gap: 50px;
+    justify-self: end;
+
+    li img{
+        border-radius: 100px;
+    }
+    li i {
+        font-size: 2.2rem;
+    }
+}
+
+header .lower{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1 / 3;
+    column-gap: 120px;
+
+    .infor{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 10px;
+
+        li img{
+            border-radius: 100px;
+        }
+
+        ul li{
+            font-weight: 600;
+        }
+        ul li:last-child{
+            font-size: 2rem;
+            margin-top: 2px;
+        }
+    }
+    
+
+    ul.btn{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        column-gap: 40px;
+
+        button {
+            height: 40px;
+            width: 100px;
+            border: none;
+            border-radius: 100px;
+            background-color: rgb(25 146 212);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #fff;
+        }
+    }
+}
+
 
 aside{
     background-color: rgb(25 146 212);
     grid-row: 1 / 4;
     min-width: 200px;
+    padding: 40px;
+    .logo{
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        li{
+            font-size: 4.4rem;
+            font-weight: 800;
+            color: white;
+        }
+    }
+
+    .sidebar {
+        margin-top: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        li{
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            i{
+                font-size: 2.3rem;
+            }
+            ul {
+                margin-top: 60px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 30px;
+                align-items: center;
+                column-gap: 20px;
+                font-size: 2rem;
+                font-weight: 800;
+                color: #fff;
+                i{
+                    font-size: 2.3rem;
+                }
+            }
+        }
+
+    }
 }
 
 main {
@@ -44,6 +180,16 @@ main {
     row-gap: 80px;
     font-size: 1.6rem;
     grid-row: 2 / 4;
+    position: relative;
+}
+
+main::before{
+    position: absolute;
+    font-weight: 700;
+    font-size: 1.8rem;
+    top: 30px;
+    left: 35px;
+    content: "Your Projects";
 }
 
 main .wrapper {
@@ -82,15 +228,71 @@ main .wrapper div::before{
 }
 
 
-main div.trending, main div.announce {
+main ul.trending, main div.announce {
+    position: relative;
     border-radius: 8px;
     background-color: white;
     grid-column: 2 / 3;
+    grid-row: auto;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 3px 1px;
+    padding: 30px;
+}
+
+div.announce::before {
+    position: absolute;
+    display: block;
+    font-weight: 700;
+    font-size: 1.8rem;
+    top: -50px;
+    left: 0;
+    content: "Announcements";
 }
 
 main .wrapper div > span {
     display: flex;
     justify-content: end;
     column-gap: 22px;
+}
+
+
+.maintenance > p {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.493);
+}
+
+.maintenance {
+    padding: 20px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.205);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+}
+
+.maintenance:nth-child(odd)
+{
+    border: none;
+}
+
+main ul.trending {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 20px;
+    li {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        img{
+            border-radius: 100px;
+            object-fit: cover;
+            object-position: 25% 100%;
+        }
+
+        ul li:last-child{
+            color:rgba(0, 0, 0, 0.518);
+        }
+    }
 }
